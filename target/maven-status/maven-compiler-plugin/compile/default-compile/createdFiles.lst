@@ -1,0 +1,4 @@
+com\niit\scartbackend\config\ApplicationContextConfig.class
+com\niit\scartbackend\model\User.class
+com\niit\scartbackend\dao\UserDAO.class
+com\niit\scartbackend\daoimpl\UserDAOImpl.class
