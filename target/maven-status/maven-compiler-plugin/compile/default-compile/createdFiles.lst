@@ -1,4 +1,13 @@
 com\niit\scartbackend\config\ApplicationContextConfig.class
+com\niit\scartbackend\model\Product.class
+com\niit\scartbackend\dao\ProductDAO.class
+com\niit\scartbackend\model\Category.class
+com\niit\scartbackend\dao\CategoryDAO.class
+com\niit\scartbackend\daoimpl\SupplierDAOImpl.class
+com\niit\scartbackend\model\User.class
 com\niit\scartbackend\dao\UserDAO.class
 com\niit\scartbackend\daoimpl\UserDAOImpl.class
-com\niit\scartbackend\model\User.class
+com\niit\scartbackend\model\Supplier.class
+com\niit\scartbackend\dao\SupplierDAO.class
+com\niit\scartbackend\daoimpl\CategoryDAOImpl.class
+com\niit\scartbackend\daoimpl\ProductDAOImpl.class

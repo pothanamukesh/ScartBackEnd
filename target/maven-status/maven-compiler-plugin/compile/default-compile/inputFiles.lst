@@ -1,4 +1,13 @@
 F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\config\ApplicationContextConfig.java
 F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\model\User.java
-F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\daoimpl\UserDAOImpl.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\dao\ProductDAO.java
 F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\dao\UserDAO.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\daoimpl\ProductDAOImpl.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\model\Category.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\dao\CategoryDAO.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\daoimpl\CategoryDAOImpl.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\model\Supplier.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\dao\SupplierDAO.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\daoimpl\SupplierDAOImpl.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\daoimpl\UserDAOImpl.java
+F:\NIIT\Project\ScartBackEnd\src\main\java\com\niit\scartbackend\model\Product.java

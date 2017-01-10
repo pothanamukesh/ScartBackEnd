@@ -12,8 +12,9 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.scartbackend.dao.UserDAO;
-import com.niit.scartbackend.daoimpl.UserDAOImpl;
+import com.niit.scartbackend.model.Category;
+import com.niit.scartbackend.model.Product;
+import com.niit.scartbackend.model.Supplier;
 import com.niit.scartbackend.model.User;
 
 
@@ -28,7 +29,7 @@ public class ApplicationContextConfig {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:~/test");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/niitdb");
 		dataSource.setUsername("mukesh");
 	    dataSource.setPassword("pass");
 		System.out.println("Database is connected.....!");
@@ -50,6 +51,9 @@ public class ApplicationContextConfig {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 	    sessionBuilder.addAnnotatedClasses(User.class);
+	    sessionBuilder.addAnnotatedClasses(Supplier.class);
+	    sessionBuilder.addAnnotatedClasses(Product.class);
+	    sessionBuilder.addAnnotatedClasses(Category.class);
 		System.out.println("Session is crated......!");
 		return sessionBuilder.buildSessionFactory();
 		
@@ -61,10 +65,10 @@ public class ApplicationContextConfig {
 		System.out.println("Transaction");
 		return transactionManager;
 	}
-	@Autowired
+	/*@Autowired
 	@Bean(name = "userDAO")
 	public UserDAO getUserDao(SessionFactory sessionFactory){
 				return  new UserDAOImpl(sessionFactory);
-	}
+	}*/
 	
 }

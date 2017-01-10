@@ -1,1 +1,5 @@
+com\niit\scartbackend\CategoryDAOTstCase.class
+com\niit\scartbackend\SupplierTestCase.class
 com\niit\scartbackend\TestUserDAO.class
+com\niit\scartbackend\ProductDAOTestCase.class
+com\niit\scartbackend\UserDAOTestCase.class

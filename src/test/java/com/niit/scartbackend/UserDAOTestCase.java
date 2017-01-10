@@ -40,16 +40,22 @@ public class UserDAOTestCase {
 	@Test
 	 public void getUserTestCase()
 	 {
-	user=	userDAO.get("niit");
-		Assert.assertEquals("User Test Case","niit",user.getName());
+	user=	userDAO.get("Mukesh");
+		Assert.assertEquals("User Test Case","Mukesh",user.getName());
 	 }
 	
 	@Test
 	public void validateCredentials()
 	{
-		user=userDAO.validate("niit","niit@123");
-		Assert.assertEquals("Validate Test Case",user,user);
-	}
+		user=userDAO.validate("Mukesh","sai123");
+		Assert.assertNotNull("ValidateCredentials",user);
+		}
+	@Test
+	public void invalidateCredentials()
+	{
+		user=userDAO.validate("mukesh","niit@13");
+		Assert.assertNull("INValidateCredentials",user);
+		}
     
 	@Test
 	public void getAlluserTestCase()
@@ -57,6 +63,35 @@ public class UserDAOTestCase {
 	int size=	userDAO.list().size();
 		Assert.assertEquals("Size Of Table",1, 1);
 	}
+	@Test
+	public void  getUserTestCase1()
+	{
+		user=userDAO.get("niit");
+		Assert.assertNotNull("Get User Test Case",user);
+		
+	}
+@Test
+	public void saveTestCase()
+	{
+		user.setId("yuga");
+		user.setName("yuga");
+		user.setMobile("8374047404");
+		user.setEmail("pothanamukesh@gmail.com");
+		user.setPassword("mukesh");
+	    user.setRole("Admin");
+	    user.setUserName("mukesh");
+		
+	Assert.assertEquals("save Test Case",true,userDAO.save(user));
+	}
+/*@Test
+ public void upadateTestCase()
+ {
+	    user.setId("niit");
 	
+		user.setRole("Role_user");
+		
+		
+	Assert.assertEquals("Upadte Test Case",true,userDAO.update(user));
+ }*/
 
 }

@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
 	@Id
-	@GeneratedValue
-	@Column(name = "Id")
 	private String Id;
 	private String name;
 	private String userName;
