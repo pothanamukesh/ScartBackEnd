@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.scartbackend.dao.ProductDAO;
 import com.niit.scartbackend.model.Product;
 
+@SuppressWarnings("deprecation")
 @Repository
 public class ProductDAOImpl implements ProductDAO {
 	private static final Logger log = LoggerFactory.getLogger(ProductDAOImpl.class);
@@ -20,13 +22,11 @@ public class ProductDAOImpl implements ProductDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	
-
 	@Transactional
-	public boolean save(Product product) {
+	public boolean saveOrUpdate(Product product) {
 		try {
 			log.debug("Save method Is Starting...........S......! ");
-			sessionFactory.getCurrentSession().save(product);
+			sessionFactory.getCurrentSession().saveOrUpdate(product);
 			log.debug("Save Method is Ending.........S.......!");
 			return true;
 		} catch (Exception e) {
@@ -65,13 +65,44 @@ public class ProductDAOImpl implements ProductDAO {
 			return false;
 		}
 	}
+
+	@Transactional
 	public List<Product> list() {
-		return null;
+		String hql = "from Product";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
 	}
 
-	public Product get(String id) {
+	@Transactional
+	public Product get(int id) {
+		log.debug("starting of the method get");
+		log.info("trying to get product based on id:" + id);
+		String hql = "from Product where id= " + "'" + id + "'";
+		log.info("the hsql query is :" + hql);
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> list = query.list();
 
-		return null;
+		if (list == null || list.isEmpty()) {
+			return null;
+		} else {
+			return list.get(0);
+		}
+	}
+
+	public List<Product> getproduct(int id) {
+		String hql = "from Product where id= " + id;
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> listProduct = (List<Product>) query.list();
+		return listProduct;
+	}
+
+	@Transactional
+	public List<Product> navproduct(int id) {
+		String hql = "from Product where categoryid= " + id;
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Product> catproduct = (List<Product>) query.list();
+		return catproduct;
 	}
 
 }

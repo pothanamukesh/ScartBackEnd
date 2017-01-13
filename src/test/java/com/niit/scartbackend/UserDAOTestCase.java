@@ -40,58 +40,59 @@ public class UserDAOTestCase {
 	@Test
 	 public void getUserTestCase()
 	 {
-	user=	userDAO.get("Mukesh");
-		Assert.assertEquals("User Test Case","Mukesh",user.getName());
-	 }
-	
-	@Test
-	public void validateCredentials()
-	{
-		user=userDAO.validate("Mukesh","sai123");
-		Assert.assertNotNull("ValidateCredentials",user);
-		}
-	@Test
-	public void invalidateCredentials()
-	{
-		user=userDAO.validate("mukesh","niit@13");
-		Assert.assertNull("INValidateCredentials",user);
-		}
-    
+	user=	userDAO.get("mukesh");
+		Assert.assertEquals("User Test Case","mukesh",user.getUsername());
+	 } 
 	@Test
 	public void getAlluserTestCase()
 	{
 	int size=	userDAO.list().size();
-		Assert.assertEquals("Size Of Table",1, 1);
+		Assert.assertEquals("Size Of Table",size, size);
 	}
 	@Test
 	public void  getUserTestCase1()
 	{
-		user=userDAO.get("niit");
+		user=userDAO.get("mukesh");
 		Assert.assertNotNull("Get User Test Case",user);
 		
 	}
 @Test
 	public void saveTestCase()
 	{
-		user.setId("yuga");
-		user.setName("yuga");
-		user.setMobile("8374047404");
+	    user.setMobile("8374047404");
 		user.setEmail("pothanamukesh@gmail.com");
 		user.setPassword("mukesh");
 	    user.setRole("Admin");
-	    user.setUserName("mukesh");
+	    user.setUsername("mukesh");
+	    user.setEnabled(true);
 		
-	Assert.assertEquals("save Test Case",true,userDAO.save(user));
+	Assert.assertEquals("save Test Case",true,userDAO.saveOrUpdate(user));
 	}
 /*@Test
  public void upadateTestCase()
  {
-	    user.setId("niit");
-	
-		user.setRole("Role_user");
+	    user.setId("mukesh");
+	    user.setName("mukesh");
+		user.setMobile("8374047404");
+		user.setEmail("pothanamukesh@gmail.com");
+		user.setPassword("mukesh@123");
+	    user.setUserName("mukesh");
+		user.setRole("Admin");
 		
 		
 	Assert.assertEquals("Upadte Test Case",true,userDAO.update(user));
  }*/
+@Test
+public void validateCredentials()
+{
+	user=userDAO.validate("mukesh","mukesh");
+	Assert.assertNotNull("ValidateCredentials",user);
+	}
+@Test
+public void invalidateCredentials()
+{
+	user=userDAO.validate("mukesh","niit@13");
+	Assert.assertNull("INValidateCredentials",user);
+	}
 
 }

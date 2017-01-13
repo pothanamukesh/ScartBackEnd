@@ -35,11 +35,10 @@ public class CategoryDAOTstCase {
 
 	@Test
 	public void saveTestCase() {
-		category.setId("mukesh1");
 		category.setName("electronis");
 		category.setDescription("this is electronis");
 
-		Assert.assertEquals("save Test Case", true, categoryDAO.save(category));
+		Assert.assertEquals("save Test Case", true, categoryDAO.saveorupdate(category));
 	}
 
 }

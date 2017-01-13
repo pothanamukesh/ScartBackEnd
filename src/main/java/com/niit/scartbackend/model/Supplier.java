@@ -12,15 +12,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class Supplier {
 	@Id
-
-	String id;
+  @GeneratedValue
+	int id;
 	String name;
 	String address;
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

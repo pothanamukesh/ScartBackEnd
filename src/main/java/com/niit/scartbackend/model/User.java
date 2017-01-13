@@ -6,38 +6,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Component;
 
-@Table(name="USER")
+@Table(name = "USER")
 @Entity
 @Component
+
 public class User {
 	@Id
-	private String Id;
-	private String name;
-	private String userName;
+    @GeneratedValue
+	private int  Id;
+	private String username;
 	private String password;
 	private String mobile;
 	private String email;
 	private String role;
-	//private String enabled;
-	public String getId() {
+	private boolean enabled;
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public int getId() {
 		return Id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		Id = id;
 	}
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -63,6 +66,7 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
+
 
 }

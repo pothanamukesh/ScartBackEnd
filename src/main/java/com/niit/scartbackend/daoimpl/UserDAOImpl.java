@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.spi.LoggerFactoryBinder;
@@ -34,40 +36,71 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Transactional
-	public User get(String id) {
-		return (User) sessionFactory.getCurrentSession().get(User.class, id);
-
-	}
-
-	@Transactional
-	public User validate(String id, String password) {
-		String hql = "from User where id='" + id + "'and password='" + password + "'";
+	public User get(int id) {
+		// return (User) sessionFactory.getCurrentSession().get(User.class, id);
+		String hql = "from User where id= " + "'" + id + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		return (User) query.uniqueResult();
+		List<User> list = query.list();
+
+		if (list == null) {
+			return null;
+		} else {
+			return list.get(0);
+		}
+
 	}
 
 	@Transactional
-	public boolean save(User user) {
-		try {
-			System.out.println("save method is executed>>>>>>>>>>");
-			sessionFactory.getCurrentSession().save(user);
+	public User validate(String username, String password) {
+		String hql = "from user where username= '" + username + "' and password '" + password + "'";
 
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<User> list = query.list();
+		if (list == null) {
+			return null;
+		} else {
+			return list.get(0);
+		}
+	}
+
+	@Transactional
+	public boolean saveOrUpdate(User user) {
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-		return true;
 	}
 
 	@Transactional
-	public boolean update(User user) {
+	public boolean delete(User user) {
 		try {
-			sessionFactory.getCurrentSession().update(user);
+			sessionFactory.getCurrentSession().delete(user);
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-		return true;
 	}
+
+	@Transactional
+	public User get(String username) {
+		Criteria c = sessionFactory.getCurrentSession().createCriteria(User.class);
+		c.add(Restrictions.eq("username", username));
+
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) c.list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		} else {
+			return null;
+		}
+
+	}
+
+	
 
 }

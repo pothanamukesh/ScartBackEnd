@@ -37,11 +37,10 @@ public class SupplierTestCase {
 @Test
 	public void saveTestCase()
 	{
-		supplier.setId("mukesh");
 		supplier.setName("Mukesh");
 		supplier.setAddress("hyd");
 		
-	Assert.assertEquals("save Test Case",true,supplierDAO.save(supplier));
+	Assert.assertEquals("save Test Case",true,supplierDAO.saveOrUpdate(supplier));
 	}
 
 	

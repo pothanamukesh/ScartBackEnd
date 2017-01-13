@@ -38,15 +38,14 @@ public class ProductDAOTestCase {
 @Test
 	public void saveTestCase()
 	{
-	product.setId("Mukesh2");
 	product.setName("lapTop");
 	product.setDescription("Lap");
-	product.setCategory_id("mukesh");
-	product.setSupplier_id("mukesh");
-	product.setPrice("1000");
+	product.setCategory_id(20);
+	product.setSupplier_id(20);
+	product.setPrice(100000);
 	product.setDescription("laptop sale");
 		
-	Assert.assertEquals("save Test Case",true,productDAO.save(product));
+	Assert.assertEquals("save Test Case",true,productDAO.saveOrUpdate(product));
 	}
 
 }
