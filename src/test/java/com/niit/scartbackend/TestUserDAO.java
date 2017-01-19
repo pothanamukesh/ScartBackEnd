@@ -28,7 +28,7 @@ public class TestUserDAO {
 		   user=(User)context.getBean("user");
 		   
 	   }
-	   public boolean validate(String username,String password)
+	   public boolean validate(int username,String password)
 	   {
 		   if(userDAO.validate(username, password)==null)
 		   {
@@ -45,7 +45,7 @@ public class TestUserDAO {
 	   public static void main(String args[])
 	   {
 		   TestUserDAO t=new TestUserDAO();
-		   t.validate("mukesh","mukesh");
+		   t.validate(1,"mukesh");
 	   }
 	
 	

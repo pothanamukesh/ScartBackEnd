@@ -51,8 +51,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Transactional
-	public User validate(String username, String password) {
-		String hql = "from user where username= '" + username + "' and password '" + password + "'";
+	public User validate(int id, String password) {
+		String hql = "from user where id= '" + id + "' and password '" + password + "'";
 
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<User> list = query.list();

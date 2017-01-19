@@ -20,7 +20,7 @@ public interface UserDAO {
 
 	//public boolean update(User user);
 
-	public User validate(String username, String password);
+	public User validate(int id, String password);
 
 	public User get(String username);
 }
