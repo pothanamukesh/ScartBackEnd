@@ -99,7 +99,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Transactional
 	public List<Product> navproduct(int id) {
-		String hql = "from Product where categoryid= " + id;
+		String hql = "from Product where category_id= " + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<Product> catproduct = (List<Product>) query.list();
 		return catproduct;

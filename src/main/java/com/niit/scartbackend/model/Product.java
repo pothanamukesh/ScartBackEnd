@@ -3,6 +3,7 @@ package com.niit.scartbackend.model;
 import javax.persistence.Transient;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 
 	@Id
+	@GeneratedValue
 	private int id;
 	private String name;
 	private String description;
