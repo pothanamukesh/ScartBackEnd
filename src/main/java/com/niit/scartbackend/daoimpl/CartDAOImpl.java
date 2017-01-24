@@ -18,7 +18,7 @@ import com.niit.scartbackend.model.Cart;
 
 
 
-@Repository(value="cartDAO")
+@Repository
 public class CartDAOImpl implements CartDAO {
 	
 public static final Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
@@ -96,17 +96,6 @@ public static final Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
 			return list.get(0);
 		}
 	}
-	/*@Transactional
-	@SuppressWarnings("unchecked")
-	public Cart getproduct(int id) {
-		String hql="from Cart where productid= "+id;
-		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<Cart>listproduct=query.list();
-		//List<Cart> listproduct = (List<Cart>) query.list();
-		return listproduct.get(0);
-	}*/
-
 	@Transactional
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public Cart getproduct(int productid) {

@@ -12,7 +12,13 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.scartbackend.dao.CartDAO;
+import com.niit.scartbackend.dao.CheckoutDAO;
+import com.niit.scartbackend.daoimpl.CartDAOImpl;
+import com.niit.scartbackend.daoimpl.CheckoutDAOImpl;
+import com.niit.scartbackend.model.Cart;
 import com.niit.scartbackend.model.Category;
+import com.niit.scartbackend.model.Checkout;
 import com.niit.scartbackend.model.Product;
 import com.niit.scartbackend.model.Supplier;
 import com.niit.scartbackend.model.User;
@@ -54,6 +60,8 @@ public class ApplicationContextConfig {
 	    sessionBuilder.addAnnotatedClasses(Supplier.class);
 	    sessionBuilder.addAnnotatedClasses(Product.class);
 	    sessionBuilder.addAnnotatedClasses(Category.class);
+	    sessionBuilder.addAnnotatedClasses(Cart.class);
+		sessionBuilder.addAnnotatedClasses(Checkout.class);
 		System.out.println("Session is crated......!");
 		return sessionBuilder.buildSessionFactory();
 		
@@ -65,10 +73,5 @@ public class ApplicationContextConfig {
 		System.out.println("Transaction");
 		return transactionManager;
 	}
-	/*@Autowired
-	@Bean(name = "userDAO")
-	public UserDAO getUserDao(SessionFactory sessionFactory){
-				return  new UserDAOImpl(sessionFactory);
-	}*/
 	
 }

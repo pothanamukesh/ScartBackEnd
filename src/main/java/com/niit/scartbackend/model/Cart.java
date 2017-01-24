@@ -22,6 +22,16 @@ public class Cart {
 	private int quantity;
 	private double price;
 	private double subtotal;
+	private String status;
+
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public double getSubtotal() {
 		return subtotal;
@@ -79,7 +89,7 @@ public class Cart {
 		this.price = price;
 	}
 
-	public void setStatus(String string) {
 	
-	}
+
+	
 }
