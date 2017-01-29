@@ -20,8 +20,8 @@ public class Cart {
 	private String productname;
 	@Column(columnDefinition = "int default 1")
 	private int quantity;
-	private double price;
-	private double subtotal;
+	private long price;
+	//private double subtotal;
 	private String status;
 
 
@@ -32,14 +32,14 @@ public class Cart {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
+/*
 	public double getSubtotal() {
 		return subtotal;
 	}
 
 	public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;
-	}
+	}*/
 
 	public int getId() {
 		return id;
@@ -81,11 +81,11 @@ public class Cart {
 		this.quantity = quantity;
 	}
 
-	public double getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 

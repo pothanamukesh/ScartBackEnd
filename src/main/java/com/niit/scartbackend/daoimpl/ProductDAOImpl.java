@@ -56,7 +56,7 @@ public class ProductDAOImpl implements ProductDAO {
 	public boolean delete(Product product) {
 		try {
 			log.debug("Delete method Is Starting..........D.......! ");
-			sessionFactory.getCurrentSession().save(product);
+			sessionFactory.getCurrentSession().delete(product);
 			log.debug("Delete Method is Ending.........D.......!");
 			return true;
 		} catch (Exception e) {
@@ -88,7 +88,7 @@ public class ProductDAOImpl implements ProductDAO {
 			return list.get(0);
 		}
 	}
-
+	@Transactional
 	public List<Product> getproduct(int id) {
 		String hql = "from Product where id= " + id;
 		@SuppressWarnings("rawtypes")
