@@ -82,19 +82,12 @@ public static final Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
 
 	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
 	@Transactional
-	public Cart get(int id) {
-		String hql = "from Cart where id= "+ "'"+ id+"'" ;
+	public List<Cart> get(int userid) {
+		String hql = "from"+" Cart"+" where userid="+userid+"and status='C'";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
-		List<Cart>list= query.list();
-		
-		if(list==null)
-		{
-			return null;
-		}
-		else
-		{
-			return list.get(0);
-		}
+		List<Cart> list= (List<Cart>)query.list();
+		return list;
+	 
 	}
 	@Transactional
 	@SuppressWarnings({ "unchecked", "deprecation" })
@@ -144,6 +137,17 @@ public static final Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
 		c.setProjection(Projections.count("userid"));
 		Long count=(Long) c.uniqueResult();
 		return count;
+	}
+	@Transactional
+	public Cart getitem(int cartId) {
+		String hql = "from"+" Cart"+" where id="+cartId;
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Cart> list = (List<Cart>) query.list();
+		if (list!= null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 }

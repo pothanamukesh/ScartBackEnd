@@ -13,7 +13,9 @@ public interface CartDAO {
 
 	public boolean delete(Cart cart);
 
-	public Cart get(int id);
+	public List<Cart> get(int userid);
+	
+	public Cart getitem(int cartId);
 
 	public Cart getproduct(int id,int userid);
 
