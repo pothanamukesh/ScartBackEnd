@@ -18,6 +18,8 @@ public interface CartDAO {
 	public Cart getitem(int cartId);
 
 	public Cart getproduct(int id,int userid);
+	
+	//public Cart getproduct(int cartid);
 
 	public long cartsize(int userId);
 

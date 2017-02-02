@@ -138,6 +138,18 @@ public static final Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
 		Long count=(Long) c.uniqueResult();
 		return count;
 	}
+	/*@Transactional
+	public Cart getproduct(int cartId) {
+		String hql = "from"+" Cart"+" where id="+cartId;
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Cart> list =query.list();
+		if (list == null || list.isEmpty()) {
+			return null;
+		} else {
+			return list.get(0);
+		}
+	}*/
 	@Transactional
 	public Cart getitem(int cartId) {
 		String hql = "from"+" Cart"+" where id="+cartId;

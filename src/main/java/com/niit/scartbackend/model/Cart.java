@@ -18,7 +18,7 @@ public class Cart {
 	private int productid;
 	private int userid;
 	private String productname;
-	@Column(columnDefinition = "int default 1")
+	@Column(columnDefinition = "Integer default 1")
 	private int quantity;
 	private long price;
 	//private double subtotal;

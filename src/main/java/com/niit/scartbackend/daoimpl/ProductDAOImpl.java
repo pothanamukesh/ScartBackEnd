@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.scartbackend.dao.ProductDAO;
+import com.niit.scartbackend.model.Cart;
 import com.niit.scartbackend.model.Product;
 
 @SuppressWarnings("deprecation")
@@ -80,13 +81,13 @@ public class ProductDAOImpl implements ProductDAO {
 		String hql = "from Product where id= " + "'" + id + "'";
 		log.info("the hsql query is :" + hql);
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<Product> list = query.list();
-
-		if (list == null || list.isEmpty()) {
-			return null;
-		} else {
+		List<Product> list = (List<Product>)query.list();
+		if (list!= null && !list.isEmpty()) {
 			return list.get(0);
 		}
+		return null;
+
+	
 	}
 	@Transactional
 	public List<Product> getproduct(int id) {
