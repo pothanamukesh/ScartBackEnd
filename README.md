@@ -12,10 +12,10 @@ This Ecommerce project is built using Spring, Hibernate ORM and Spring security 
  
  ## Installation Guide
  
--  Download Eclipse
--  Install Tomcat
+- Download Eclipse
+- Install Tomcat
 - Set Tomcat path Reference
-- **Download Project** [here](https://github.com/pothanamukesh/ScartBackEnd/archive/master.zip)
+- Download Project [here](https://github.com/pothanamukesh/ScartBackEnd/archive/master.zip)
 - Import Project in Eclipse
    - File
    - Import
